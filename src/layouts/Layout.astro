@@ -1,6 +1,8 @@
 ---
 import BaseHead from '@/components/BaseHead.astro';
-import HeaderLink from '@/components/HeaderLink.astro';
+import { Image } from 'astro:assets';
+import logo_white from '@/assets/images/logo-white.png';
+import Button from '@/components/Button.astro';
 
 interface Props {
   title: string;
@@ -16,31 +18,25 @@ const { title } = Astro.props;
   </head>
   <body hx-boost="true">
     <header>
-      <nav>
-        <HeaderLink href="/">Home</HeaderLink>
-        <HeaderLink href="/about">About</HeaderLink>
-      </nav>
+      <section class="logo-box">
+        <a href="/">
+          <Image src={logo_white} alt="logo" loading="eager" />
+        </a>
+      </section>
+      <section class="text-box">
+        <h1>
+          <span>OUTDOORS</span>
+          <span>IS WHERE LIFE HAPPENS</span>
+        </h1>
+        <Button href="#" class="btn-white btn-animated"
+          >DISCOVER OUR TOURS</Button
+        >
+      </section>
     </header>
     <main>
       <slot />
     </main>
-    <footer>Footer</footer>
+    <footer></footer>
     <script src="@/lib/app.ts"></script>
   </body>
 </html>
-
-<style>
-  header {
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-size: 1.25rem;
-    }
-  }
-  nav,
-  footer {
-    text-align: center;
-    padding: 20px 5px;
-  }
-</style>
