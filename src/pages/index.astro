@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="hx">
+  <h1>Home</h1>
+  <p id="message" hx-get="/api/message" hx-trigger="load" hx-swap="outerHTML">
+    HTMX NOT working
+  </p>
+  <section id="font">
+    <div>
+      <span>Active font:</span>
+      <span>S</span>
+    </div>
+    <div class="font-sans">
+      <span>Fallback font:</span>
+      <span>S</span>
+    </div>
+  </section>
+  <div class="test">mask</div>
+</Layout>

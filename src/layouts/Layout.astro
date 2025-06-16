@@ -1,0 +1,46 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import HeaderLink from '@/components/HeaderLink.astro';
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} />
+    <script src="@/lib/htmx.org.ts"></script>
+  </head>
+  <body hx-boost="true">
+    <header>
+      <nav>
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>Footer</footer>
+    <script src="@/lib/app.ts"></script>
+  </body>
+</html>
+
+<style>
+  header {
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1.25rem;
+    }
+  }
+  nav,
+  footer {
+    text-align: center;
+    padding: 20px 5px;
+  }
+</style>
