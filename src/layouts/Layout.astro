@@ -18,12 +18,12 @@ const { title } = Astro.props;
   </head>
   <body hx-boost="true">
     <header>
-      <section class="logo-box">
+      <div class="logo-box">
         <a href="/">
           <Image src={logo_white} alt="logo" loading="eager" />
         </a>
-      </section>
-      <section class="text-box">
+      </div>
+      <div class="text-box">
         <h1>
           <span>OUTDOORS</span>
           <span>IS WHERE LIFE HAPPENS</span>
@@ -31,7 +31,7 @@ const { title } = Astro.props;
         <Button href="#" class="btn-white btn-animated"
           >DISCOVER OUR TOURS</Button
         >
-      </section>
+      </div>
     </header>
     <main>
       <slot />

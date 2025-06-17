@@ -15,7 +15,8 @@
     "htmx.org": "2.0.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.21"
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7"
   },
   "browserslist": [
     ">5%",
