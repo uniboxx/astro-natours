@@ -1,10 +1,11 @@
 :root {
   /* COLORS */
-  --color-background: lch(100% 0 0);
-  --color-gray: lch(50 0 0);
-  --color-light-green: lch(77.98 62.23 137.36);
-  --color-green: lch(71.74 56.21 149.81);
-  --color-dark-green: lch(65.58 49.3 163.72);
+  --color-white: lch(100% 0 0);
+  --color-gray-dark: lch(50 0 0);
+  --color-black: lch(0% 0 0);
+  --color-primary-light: lch(77.98 62.23 137.36);
+  --color-primary: lch(71.74 56.21 149.81);
+  --color-primary-dark: lch(65.58 49.3 163.72);
 
   /* TYPOGRAPHY */
   --font-family: 'Lato', sans-serif;

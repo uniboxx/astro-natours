@@ -2,6 +2,5 @@
 @import 'variables.css' layer(variables);
 @import 'base.css' layer(base);
 @import 'animations.css' layer(animations);
+@import 'components.css' layer(components);
 @import 'header.css' layer(header);
-
-

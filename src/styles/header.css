@@ -1,103 +1,53 @@
-header {
-  height: 100%;
-  background: linear-gradient(
-      to right bottom,
-      lch(from var(--color-light-green) l c h / 0.8),
-      lch(from var(--color-dark-green) l c h / 0.8)
-    ),
-    url('../assets/images/hero.webp') no-repeat top / cover;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  position: relative;
+header#header {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  background: linear-gradient(
+      to right bottom,
+      lch(from var(--color-primary-light) l c h / 0.8),
+      lch(from var(--color-primary-dark) l c h / 0.8)
+    ),
+    url('../assets/images/hero.webp') no-repeat top / cover;
+  height: 100%;
 
   .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 2rem;
+    left: 2rem;
     img {
       width: 2rem;
     }
   }
   .text-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 
     h1 {
-      color: white;
-      margin-bottom: 60px;
+      margin-bottom: 3rem;
+      color: var(--color-white);
       & > span {
         display: block;
-        font-size: 1.5rem;
-        font-weight: 700;
         animation: moveInRight 1s ease-out;
+        padding-left: 0.2rem;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.2rem;
         &:first-child {
-          font-size: 2.5rem;
-          letter-spacing: 0.5rem;
           animation: moveInLeft 1s ease-out;
+          padding-left: 0.1rem;
+          font-size: 3rem;
+          letter-spacing: 0.1rem;
         }
-      }
-
-      @media screen and (min-width: 40rem) {
-        & > span {
-          font-size: 1.12rem;
-          letter-spacing: 0.95rem;
-          padding-left: 0.95rem;
+        @media screen and (min-width: 40rem) {
+          padding-left: 0.9rem;
+          letter-spacing: 0.9rem;
 
           &:first-child {
-            font-size: 3.3rem;
-            letter-spacing: 2rem;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
+            letter-spacing: 1.75rem;
           }
-        }
-      }
-    }
-    .btn {
-      width: max-content;
-
-      padding: 1rem 2rem;
-      border-radius: 100px;
-      transition: 0.2s;
-      position: relative;
-      &.btn-animated {
-        animation: moveInBottom 0.5s ease-out 0.75s;
-        animation-fill-mode: backwards;
-      }
-      &::after {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 100px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all 0.4s;
-      }
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        &::after {
-          transform: scaleX(1.4) scaleY(1.6);
-          opacity: 0;
-        }
-      }
-      &:active {
-        transform: translateY(-1px);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      &.btn-white {
-        background-color: white;
-        color: var(--color-gray);
-        &::after {
-          background-color: white;
         }
       }
     }
