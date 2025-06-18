@@ -2,5 +2,7 @@
 @import 'variables.css' layer(variables);
 @import 'base.css' layer(base);
 @import 'animations.css' layer(animations);
-@import 'components.css' layer(components);
+@import 'utilities.css' layer(utilities);
+@import 'typography.css' layer(typography);
 @import 'header.css' layer(header);
+@import 'about.css' layer(about);

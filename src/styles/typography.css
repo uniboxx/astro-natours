@@ -1,0 +1,58 @@
+h1 {
+  margin-bottom: 3rem;
+  color: var(--color-white);
+  & > span {
+    display: block;
+    animation: moveInRight 1s ease-out;
+    padding-left: 0.2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    &:first-child {
+      animation: moveInLeft 1s ease-out;
+      padding-left: 0.1rem;
+      font-size: 3rem;
+      letter-spacing: 0.1rem;
+    }
+    @media screen and (min-width: 40rem) {
+      padding-left: 0.9rem;
+      letter-spacing: 0.9rem;
+
+      &:first-child {
+        padding-left: 1.75rem;
+        letter-spacing: 1.75rem;
+      }
+    }
+  }
+}
+h2 {
+  display: inline-block;
+  transition: all 0.2s;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  @media screen and (min-width: 40rem) {
+    font-size: 1.75rem;
+  }
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem lch(from var(--color-black) l c h / 0.2);
+  }
+}
+h3 {
+  font-weight: 700;
+  font-size: 1rem;
+}
+p {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}

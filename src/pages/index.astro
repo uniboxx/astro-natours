@@ -1,5 +1,33 @@
 ---
+import Button from '@/components/Button.astro';
 import Layout from '@/layouts/Layout.astro';
 ---
 
-<Layout title="Natours | Exciting tours for adventurous people"> ciao </Layout>
+<Layout title="Natours | Exciting tours for adventurous people">
+  <main>
+    <section id="about">
+      <div class="mb-md center">
+        <h2>EXCITING TOURS FOR ADVENTUROUS PEOPLE</h2>
+      </div>
+      <div class="px-xs about-content">
+        <div class="text">
+          <h3 class="mb-sm">YOU'RE GOING TO FALL IN LOVE WITH NATOURS</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            voluptatum. Asperiores, quas. Quisquam, voluptatum. Asperiores,
+            quas.
+          </p>
+          <h3 class="mb-sm">LIVE ADVENTURES LIKE YOU NEVER HAD BEFORE</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, ex
+            beatae delectus eligendi laboriosam quam pariatur. Ipsa, facilis a,
+            tempora aspernatur unde quia distinctio eius optio eum doloribus
+            voluptates deleniti!
+          </p>
+          <Button href="#" class="btn-text">Learn more &rarr;</Button>
+        </div>
+        <div class="images-composition">images</div>
+      </div>
+    </section>
+  </main>
+</Layout>

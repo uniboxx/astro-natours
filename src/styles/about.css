@@ -1,0 +1,16 @@
+#about {
+  margin-top: -20svh;
+  background-color: var(--color-gray-light-1);
+  padding: 12.5rem 0;
+  .about-content {
+    @media screen and (min-width: 40rem) {
+      display: flex;
+      margin: 0 auto;
+      width: 80%;
+      & > div {
+        flex: 1;
+        gap: 1rem;
+      }
+    }
+  }
+}
