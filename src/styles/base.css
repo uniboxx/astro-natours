@@ -17,9 +17,9 @@ html {
   @media screen and (min-width: 80rem) {
     font-size: 125%;
   }
-  @media screen and (min-width: 120rem) {
+  /* @media screen and (min-width: 120rem) {
     font-size: 150%;
-  }
+  } */
 }
 body {
   background: var(--color-white);

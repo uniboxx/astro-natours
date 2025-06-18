@@ -1,0 +1,53 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+const aboutImages = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/images/about/*.jpg'
+);
+
+const aboutImagesValues = Object.values(aboutImages);
+---
+
+<div class="images-composition">
+  <Image src={aboutImagesValues[0]()} alt="1" class="photo photo--1" />
+  <Image src={aboutImagesValues[1]()} alt="2" class="photo photo--2" />
+  <Image src={aboutImagesValues[2]()} alt="3" class="photo photo--3" />
+</div>
+
+<style>
+  .images-composition {
+    position: relative;
+    &:hover .photo:not(:hover) {
+      transform: scale(0.95);
+    }
+    .photo {
+      position: absolute;
+      transition: 0.2s;
+      box-shadow: 0 1.5rem 4rem lch(from var(--color-black) l c h / 0.4);
+      border-radius: 2px;
+      width: 55%;
+
+      &.photo--1 {
+        top: -1rem;
+        left: 0;
+      }
+      &.photo--2 {
+        top: 1rem;
+        right: 0;
+      }
+      &.photo--3 {
+        top: 5rem;
+        left: 20%;
+      }
+
+      &:hover {
+        transform: scale(1.05) translateY(-0.5rem);
+        z-index: 1;
+        outline: 0.75rem solid var(--color-primary);
+        outline-offset: 0.5rem;
+        box-shadow: 0 2.5rem 4rem lch(from var(--color-black) l c h / 0.5);
+      }
+    }
+  }
+</style>
