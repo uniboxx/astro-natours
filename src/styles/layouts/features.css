@@ -1,0 +1,26 @@
+#features {
+  transform: skewY(calc((var(--skewY)) * -1));
+  margin-top: -6rem;
+
+  background: linear-gradient(
+      to right bottom,
+      lch(from var(--color-primary-light) l c h / 0.8),
+      lch(from var(--color-primary-dark) l c h / 0.8)
+    ),
+    url('../../assets/images/nat-4.webp') no-repeat top / cover;
+  padding: 10rem 0;
+  & > * {
+    transform: skewY(var(--skewY));
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  @media screen and (min-width: 40rem) {
+    padding: 20rem 0;
+  }
+}

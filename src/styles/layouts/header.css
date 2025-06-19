@@ -10,7 +10,7 @@ header#header {
       lch(from var(--color-primary-light) l c h / 0.8),
       lch(from var(--color-primary-dark) l c h / 0.8)
     ),
-    url('../assets/images/hero.webp') no-repeat top / cover;
+    url('../../assets/images/hero.webp') no-repeat top / cover;
   height: 95svh;
 
   .logo-box {

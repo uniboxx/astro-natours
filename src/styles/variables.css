@@ -7,7 +7,14 @@
   --color-primary-light: lch(77.98 62.23 137.36);
   --color-primary: lch(71.74 56.21 149.81);
   --color-primary-dark: lch(65.58 49.3 163.72);
+  --color-secondary-light: lch(79.59% 83.16 80.65);
+  --color-secondary-dark: lch(65.49% 77.29 51.65);
+  --color-tertiary-light: lch(61.78% 59.83 275.65);
+  --color-tertiary-dark: lch(42.6% 106.05 304.08);
 
   /* TYPOGRAPHY */
   --font-family: 'Lato', sans-serif;
+
+  /* OTHERS */
+  --skewY: 7deg;
 }

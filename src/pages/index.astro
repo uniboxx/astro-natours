@@ -1,11 +1,15 @@
 ---
 import Button from '@/components/Button.astro';
+import FeatureBox from '@/components/FeatureBox.astro';
 import Layout from '@/layouts/Layout.astro';
 import ImagesComposition from '@/components/ImagesComposition.astro';
+import TourCard from '@/components/TourCard.astro';
 ---
 
 <Layout title="Natours | Exciting tours for adventurous people">
   <main>
+    <!-- //////////////////////////////////////////////// -->
+    <!-- ABOUT SECTION -->
     <section id="about">
       <div class="mb-lg center">
         <h2>EXCITING TOURS FOR ADVENTUROUS PEOPLE</h2>
@@ -28,6 +32,45 @@ import ImagesComposition from '@/components/ImagesComposition.astro';
           <Button href="#" class="btn-text">Learn more &rarr;</Button>
         </div>
         <ImagesComposition />
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features">
+      <div class="px-xs cards">
+        <FeatureBox
+          title="EXPLORE THE WORLD"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Asperiores, quas."
+          icon="icon-basic-world"
+        />
+        <FeatureBox
+          title="MEET NATURE"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Asperiores, quas."
+          icon="icon-basic-compass"
+        />
+        <FeatureBox
+          title="FIND YOUR WAY"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Asperiores, quas."
+          icon="icon-basic-map"
+        />
+        <FeatureBox
+          title="LIVE A HEALTHIER LIFE"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Asperiores, quas."
+          icon="icon-basic-heart"
+        />
+      </div>
+    </section>
+
+    <!-- TOURS SECTION -->
+    <section id="tours">
+      <div class="mb-lg center">
+        <h2 class="mb-sm">MOST POPULAR TOURS</h2>
+      </div>
+      <div class="px-xs cards">
+        <TourCard
+          gradient1="color-primary-light"
+          gradient2="color-primary-dark"
+        />
       </div>
     </section>
   </main>

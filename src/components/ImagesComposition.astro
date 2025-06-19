@@ -18,13 +18,14 @@ const aboutImagesValues = Object.values(aboutImages);
 <style>
   .images-composition {
     position: relative;
+    height: 15rem;
     &:hover .photo:not(:hover) {
       transform: scale(0.95);
     }
     .photo {
       position: absolute;
       transition: 0.2s;
-      box-shadow: 0 1.5rem 4rem lch(from var(--color-black) l c h / 0.4);
+      box-shadow: 0 0.75rem 2rem lch(from var(--color-black) l c h / 0.4);
       border-radius: 2px;
       width: 55%;
 
@@ -46,7 +47,7 @@ const aboutImagesValues = Object.values(aboutImages);
         z-index: 1;
         outline: 0.75rem solid var(--color-primary);
         outline-offset: 0.5rem;
-        box-shadow: 0 2.5rem 4rem lch(from var(--color-black) l c h / 0.5);
+        box-shadow: 0 1.25rem 2rem lch(from var(--color-black) l c h / 0.5);
       }
     }
   }

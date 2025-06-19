@@ -1,0 +1,45 @@
+---
+const { gradient1, gradient2 } = Astro.props;
+const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${gradient2}))`;
+---
+
+<div class="card">
+  <div class="side side--front">FRONT</div>
+  <div class="side side--back">BACK</div>
+</div>
+
+<style define:vars={{ gradient }}>
+  .card {
+    position: relative;
+    perspective: 75rem;
+    width: 15rem;
+    height: 30rem;
+    .side {
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      transition: 0.8s ease;
+      box-shadow: 0 0.75rem 2rem lch(from var(--color-black) l c h / 0.15);
+      border-radius: 3px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      &.side--front {
+      }
+      &.side--back {
+        transform: rotateY(-180deg);
+        background: var(--gradient);
+      }
+    }
+
+    .card-back {
+    }
+    &:hover .side--front {
+      transform: rotateY(180deg);
+    }
+    &:hover .side--back {
+      transform: rotateY(0);
+    }
+  }
+</style>

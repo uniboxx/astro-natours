@@ -1,0 +1,41 @@
+---
+const { title, description, icon } = Astro.props;
+---
+
+<div class="feature-box">
+  <i class={icon}></i>
+  <h3 class="mb-sm">{title}</h3>
+  <p>{description}</p>
+</div>
+
+<style>
+  .feature-box {
+    transition: 0.3s;
+    box-shadow: 0 0.75rem 2rem lch(from var(--color-black) l c h / 0.15);
+    border-radius: 3px;
+    background-color: lch(from var(--color-white) l c h / 0.8);
+    padding: 1.25rem;
+    max-width: 15rem;
+    font-size: 0.75rem;
+    text-align: center;
+    i {
+      margin-bottom: 0.25rem;
+      background: linear-gradient(
+        to right,
+        var(--color-primary-light),
+        var(--color-primary-dark)
+      );
+      background-clip: text;
+      color: transparent;
+      font-size: 3rem;
+    }
+    p {
+    }
+    @media screen and (min-width: 40rem) {
+      max-width: 15rem;
+    }
+    &:hover {
+      transform: translateY(-1rem) scale(1.03);
+    }
+  }
+</style>

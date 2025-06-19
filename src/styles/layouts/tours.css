@@ -1,0 +1,15 @@
+#tours {
+  margin-top: -6rem;
+  background-color: var(--color-gray-light-1);
+
+  padding: 12rem 0 25rem;
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  @media screen and (min-width: 40rem) {
+  }
+}

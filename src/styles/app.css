@@ -2,7 +2,10 @@
 @import 'variables.css' layer(variables);
 @import 'base.css' layer(base);
 @import 'animations.css' layer(animations);
+@import 'icon-font.css' layer(iconFont);
 @import 'utilities.css' layer(utilities);
 @import 'typography.css' layer(typography);
-@import 'header.css' layer(header);
-@import 'about.css' layer(about);
+@import './layouts/header.css' layer(header);
+@import './layouts/about.css' layer(about);
+@import './layouts/features.css' layer(features);
+@import './layouts/tours.css' layer(tours);
