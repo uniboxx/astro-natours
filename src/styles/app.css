@@ -9,3 +9,4 @@
 @import './layouts/about.css' layer(about);
 @import './layouts/features.css' layer(features);
 @import './layouts/tours.css' layer(tours);
+@import './layouts/stories.css' layer(stories);

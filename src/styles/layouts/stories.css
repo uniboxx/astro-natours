@@ -1,0 +1,7 @@
+#stories {
+  background-color: var(--color-gray-light-1);
+  padding: 4rem 0;
+  @media screen and (min-width: 40rem) {
+    padding: 7.5rem 0;
+  }
+}

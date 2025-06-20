@@ -1,0 +1,75 @@
+---
+import stories from '@/data/stories.json';
+import { Image } from 'astro:assets';
+const storyImages = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/images/stories/*.webp'
+);
+const storyImagesValues = Object.values(storyImages);
+
+const { story } = Astro.props;
+const { title, alt, text } = stories[story - 1];
+---
+
+<div class="story">
+  <figure class="image">
+    <Image src={storyImagesValues[story - 1]()} alt={alt} />
+  </figure>
+  <div class="text">
+    <h3 class="mb-sm">{title}</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolore a
+      asperiores, voluptate animi, recusandae nesciunt rerum dignissimos
+      delectus quam fugit vero adipisci nostrum distinctio optio voluptatem
+      commodi soluta necessitatibus!
+    </p>
+  </div>
+</div>
+
+<style>
+  .story {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    box-shadow: 0 1.5rem 3rem lch(from var(--color-black) l c h / 0.1);
+    border-radius: 3px;
+    background-color: var(--color-white);
+    padding: 1rem;
+
+    figure.image {
+      clip-path: circle(50% at 50% 50%);
+
+      width: 7.5rem;
+      height: 7.5rem;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    @media screen and (min-width: 40rem) {
+      display: block;
+      transform: skewX(-12deg);
+      margin: 0 auto;
+      padding: 3rem;
+      padding-left: 4.5rem;
+      width: 60%;
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+      & > * {
+        transform: skewX(12deg);
+      }
+      figure.image {
+        float: left;
+        shape-outside: circle(50% at 50% 50%);
+        transform: translateX(-1.5rem) skewX(12deg);
+      }
+      .text {
+      }
+    }
+  }
+</style>

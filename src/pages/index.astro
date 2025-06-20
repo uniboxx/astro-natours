@@ -5,6 +5,7 @@ import Layout from '@/layouts/Layout.astro';
 import ImagesComposition from '@/components/ImagesComposition.astro';
 import TourCard from '@/components/TourCard.astro';
 import type { ImageMetadata } from 'astro';
+import StoryCard from '@/components/StoryCard.astro';
 ---
 
 <Layout title="Natours | Exciting tours for adventurous people">
@@ -84,6 +85,15 @@ import type { ImageMetadata } from 'astro';
           tour="3"
         />
       </div>
+    </section>
+
+    <!-- STORIES SECTION -->
+    <section id="stories">
+      <div class="mb-lg center">
+        <h2 class="mb-sm">WE MAKE PEOPLE GENUINELY HAPPY</h2>
+      </div>
+      <StoryCard story="1" />
+      <StoryCard story="2" />
     </section>
   </main>
 </Layout>
