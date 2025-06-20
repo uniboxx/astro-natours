@@ -1,16 +1,21 @@
 ---
-import tours from '../data/tours.json';
+import { Image } from 'astro:assets';
+import tours from '@/data/tours.json';
+import Button from '@/components/Button.astro';
 
 const { gradient1, gradient2, tour } = Astro.props;
 
-const { name, image, details } = tours[tour - 1];
+const { name, image, details, price } = tours[tour - 1];
 const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${gradient2}))`;
 const gradientTransp = `linear-gradient(to bottom right, lch(from var(--${gradient1}) l c h / 0.85), lch(from var(--${gradient2}) l c h / 0.85))`;
 const backgroundFront = `${gradient}, url('${image}') no-repeat center / cover`;
+import rotate from '@/assets/icons/icon-rotate.webp';
 ---
 
 <div class="card">
   <div class="side side--front">
+    <Image class="icon-rotate" src={rotate} alt="" />
+
     <div class="picture"></div>
     <h4 class="heading"><span>{name}</span></h4>
     <div class="details">
@@ -19,7 +24,13 @@ const backgroundFront = `${gradient}, url('${image}') no-repeat center / cover`;
       </ul>
     </div>
   </div>
-  <div class="side side--back">BACK</div>
+  <div class="side side--back">
+    <div class="price-box">
+      <p>ONLY</p>
+      <p class="price">€{price}</p>
+    </div>
+    <Button href="#" class="btn btn--white">BOOK NOW!</Button>
+  </div>
 </div>
 
 <style define:vars={{ backgroundFront, gradient, gradientTransp }}>
@@ -45,6 +56,14 @@ const backgroundFront = `${gradient}, url('${image}') no-repeat center / cover`;
       text-align: center;
       &.side--front {
         position: relative;
+        .icon-rotate {
+          position: absolute;
+          top: 0;
+          right: 0.25rem;
+          z-index: 100;
+          filter: invert(0.8);
+          width: 1.5rem;
+        }
         .picture {
           clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
           background: var(--backgroundFront);
@@ -82,13 +101,28 @@ const backgroundFront = `${gradient}, url('${image}') no-repeat center / cover`;
         }
       }
       &.side--back {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
         transform: rotateY(180deg);
         background: var(--gradient);
+        .price-box {
+          p {
+            margin: 0;
+            color: var(--color-white);
+            font-size: 0.9rem;
+          }
+          .price {
+            margin-bottom: 1rem;
+            font-weight: 100;
+            font-size: 3rem;
+          }
+        }
       }
     }
 
-    .card-back {
-    }
     &:hover .side--front {
       transform: rotateY(-180deg);
     }
