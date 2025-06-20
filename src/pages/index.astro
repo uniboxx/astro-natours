@@ -4,6 +4,7 @@ import FeatureBox from '@/components/FeatureBox.astro';
 import Layout from '@/layouts/Layout.astro';
 import ImagesComposition from '@/components/ImagesComposition.astro';
 import TourCard from '@/components/TourCard.astro';
+import type { ImageMetadata } from 'astro';
 ---
 
 <Layout title="Natours | Exciting tours for adventurous people">
@@ -68,8 +69,19 @@ import TourCard from '@/components/TourCard.astro';
       </div>
       <div class="px-xs cards">
         <TourCard
+          gradient1="color-secondary-light"
+          gradient2="color-secondary-dark"
+          tour="1"
+        />
+        <TourCard
           gradient1="color-primary-light"
           gradient2="color-primary-dark"
+          tour="2"
+        />
+        <TourCard
+          gradient1="color-tertiary-light"
+          gradient2="color-tertiary-dark"
+          tour="3"
         />
       </div>
     </section>

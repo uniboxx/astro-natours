@@ -1,19 +1,35 @@
 ---
-const { gradient1, gradient2 } = Astro.props;
+import tours from '../data/tours.json';
+
+const { gradient1, gradient2, tour } = Astro.props;
+
+const { name, image, details } = tours[tour - 1];
 const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${gradient2}))`;
+const gradientTransp = `linear-gradient(to bottom right, lch(from var(--${gradient1}) l c h / 0.85), lch(from var(--${gradient2}) l c h / 0.85))`;
+const backgroundFront = `${gradient}, url('${image}') no-repeat center / cover`;
 ---
 
 <div class="card">
-  <div class="side side--front">FRONT</div>
+  <div class="side side--front">
+    <div class="picture"></div>
+    <h4 class="heading"><span>{name}</span></h4>
+    <div class="details">
+      <ul>
+        {details.map((detail) => <li>{detail}</li>)}
+      </ul>
+    </div>
+  </div>
   <div class="side side--back">BACK</div>
 </div>
 
-<style define:vars={{ gradient }}>
+<style define:vars={{ backgroundFront, gradient, gradientTransp }}>
   .card {
     position: relative;
+    flex: 1;
     perspective: 75rem;
-    width: 15rem;
-    height: 30rem;
+    min-width: 13rem;
+    max-width: 18rem;
+
     .side {
       position: absolute;
       top: 0;
@@ -24,11 +40,49 @@ const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${
       border-radius: 3px;
       width: 100%;
       height: 100%;
+      /* image overflow the parent and radius will be ignored */
+      overflow: hidden;
       text-align: center;
       &.side--front {
+        position: relative;
+        .picture {
+          clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+          background: var(--backgroundFront);
+          background-blend-mode: screen;
+          height: 11.5rem;
+        }
+        .heading {
+          position: absolute;
+          top: 6rem;
+          right: 1rem;
+          width: 75%;
+          color: var(--color-white);
+          font-weight: 300;
+          font-size: 1.4rem;
+          text-align: right;
+
+          span {
+            box-decoration-break: clone;
+            background: var(--gradientTransp);
+            padding: 0.5rem 0.75rem;
+          }
+        }
+        .details {
+          padding: 1.5rem 0 2rem;
+          ul {
+            margin: 0 auto;
+            width: 80%;
+            li {
+              padding: 0.5rem;
+              &:not(:last-child) {
+                border-bottom: 1px solid var(--color-gray-light-2);
+              }
+            }
+          }
+        }
       }
       &.side--back {
-        transform: rotateY(-180deg);
+        transform: rotateY(180deg);
         background: var(--gradient);
       }
     }
@@ -36,7 +90,7 @@ const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${
     .card-back {
     }
     &:hover .side--front {
-      transform: rotateY(180deg);
+      transform: rotateY(-180deg);
     }
     &:hover .side--back {
       transform: rotateY(0);
