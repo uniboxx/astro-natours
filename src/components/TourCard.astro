@@ -2,13 +2,17 @@
 import { Image } from 'astro:assets';
 import tours from '@/data/tours.json';
 import Button from '@/components/Button.astro';
+import nat5 from '@/assets/images/nat-5-small.webp';
+
+console.log(nat5);
 
 const { gradient1, gradient2, tour } = Astro.props;
 
 const { name, image, details, price } = tours[tour - 1];
+const imageUrl = `@/assets/images/${image}`;
 const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${gradient2}))`;
 const gradientTransp = `linear-gradient(to bottom right, lch(from var(--${gradient1}) l c h / 0.85), lch(from var(--${gradient2}) l c h / 0.85))`;
-const backgroundFront = `${gradient}, url('${image}') no-repeat center / cover`;
+const backgroundFront = `${gradient}, url('${nat5.src}') no-repeat center / cover`;
 import rotate from '@/assets/icons/icon-rotate.webp';
 ---
 
