@@ -1,0 +1,63 @@
+---
+interface Props {
+  label: string;
+  input: string;
+  type?: astroHTML.JSX.HTMLInputTypeAttribute;
+}
+
+const { label, input, type = 'text' } = Astro.props;
+---
+
+<div class="form-item">
+  <input type={type} name={input} id={input} required placeholder={label} />
+  <label for={input}>{label}</label>
+</div>
+
+<style>
+  .form-item {
+    position: relative;
+
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    input,
+    label {
+      display: block;
+    }
+
+    label {
+      transition: 0.3s;
+      margin-left: 1rem;
+      font-weight: 700;
+      font-size: 0.7rem;
+    }
+
+    input {
+      display: inline-block;
+      transition: 0.3s;
+      border: none;
+      border-bottom: 3px solid transparent;
+      border-radius: 2px;
+      background-color: lch(from var(--color-white) l c h / 0.5);
+      padding: 0.75rem 1rem;
+      width: 100%;
+      font-size: 0.9rem;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0.5rem 1rem lch(from var(--color-black) l c h / 0.1);
+        border-bottom-color: var(--color-primary);
+        &:invalid {
+          border-bottom-color: var(--color-secondary-dark);
+        }
+      }
+    }
+    input:placeholder-shown + label {
+      transform: translateY(-2rem);
+      /* visibility: hidden; */
+      opacity: 0;
+    }
+  }
+</style>

@@ -4,15 +4,14 @@ import FeatureBox from '@/components/FeatureBox.astro';
 import Layout from '@/layouts/Layout.astro';
 import ImagesComposition from '@/components/ImagesComposition.astro';
 import TourCard from '@/components/TourCard.astro';
-import type { ImageMetadata } from 'astro';
 import StoryCard from '@/components/StoryCard.astro';
 import storiesVideoMp4 from '@/assets/images/stories/video-small.mp4';
 import storiesVideoWebm from '@/assets/images/stories/video-small.webm';
+import FormItem from '@/components/FormItem.astro';
 ---
 
 <Layout title="Natours | Exciting tours for adventurous people">
   <main>
-    <!-- //////////////////////////////////////////////// -->
     <!-- ABOUT SECTION -->
     <section id="about">
       <div class="mb-lg center">
@@ -105,6 +104,17 @@ import storiesVideoWebm from '@/assets/images/stories/video-small.webm';
       <StoryCard story="2" />
       <div class="center">
         <Button href="#" class="btn-text">Read all stories &rarr;</Button>
+      </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section id="booking">
+      <div class="book">
+        <form>
+          <h2 class="mb-sm">Start booking now</h2>
+          <FormItem label="Full name" input="name" />
+          <FormItem type="email" label="Email address" input="email" />
+        </form>
       </div>
     </section>
   </main>

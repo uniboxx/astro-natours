@@ -10,3 +10,4 @@
 @import './layouts/features.css' layer(features);
 @import './layouts/tours.css' layer(tours);
 @import './layouts/stories.css' layer(stories);
+@import './layouts/booking.css' layer(booking);

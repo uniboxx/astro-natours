@@ -1,0 +1,53 @@
+#booking {
+  background: linear-gradient(
+      to right bottom,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    ),
+    url('../../assets/images/nat-10.webp') no-repeat center / cover;
+  padding: 2rem 0;
+  .book {
+    --form-width: 90%;
+    box-shadow: 0 0.75rem 2rem lch(from var(--color-black) l c h / 0.2);
+    border-radius: 3px;
+    background: linear-gradient(
+        105deg,
+        lch(from var(--color-white) l c h / 0.9) var(--form-width),
+        transparent var(--form-width)
+      ),
+      url('../../assets/images/nat-10.webp') no-repeat top / cover;
+    height: 25rem;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      width: var(--form-width);
+      h2 {
+        align-self: start;
+      }
+    }
+  }
+
+  @media screen and (min-width: 40rem) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7.5rem 0;
+    .book {
+      --form-width: 70%;
+      width: 75%;
+
+      form {
+        padding: 2rem 4rem;
+        width: var(--form-width);
+      }
+    }
+  }
+  @media screen and (min-width: 80rem) {
+    .book {
+      --form-width: 50%;
+    }
+  }
+}
