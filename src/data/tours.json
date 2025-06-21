@@ -1,7 +1,7 @@
 [
   {
     "name": "THE SEA EXPLORER",
-    "image": "/src/assets/images/nat-5-small.webp",
+    "image": "../assets/images/nat-5-small.webp",
     "details": [
       "3 day tour",
       "Up to 30 people",
@@ -13,7 +13,7 @@
   },
   {
     "name": "THE FOREST HIKER",
-    "image": "/src/assets/images/nat-6-small.webp",
+    "image": "../assets/images/nat-6-small.webp",
     "details": [
       "7 day tour",
       "Up to 40 people",
@@ -25,7 +25,7 @@
   },
   {
     "name": "THE SNOW ADVENTURER",
-    "image": "/src/assets/images/nat-7-small.webp",
+    "image": "../assets/images/nat-7-small.webp",
     "details": [
       "5 day tour",
       "Up to 15 people",
