@@ -20,11 +20,8 @@ interface Props {
 const { gradient1, gradient2, tour } = Astro.props;
 
 const { name, image, details, price } = tours[tour - 1];
-
 const key = tourImagesKeys.find((key) => key.includes(image));
-
 const imageUrl = (await tourImages[key as string]()).default.src;
-
 const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${gradient2}))`;
 const gradientTransp = `linear-gradient(to bottom right, lch(from var(--${gradient1}) l c h / 0.85), lch(from var(--${gradient2}) l c h / 0.85))`;
 const backgroundFront = `${gradient}, url('${imageUrl}') no-repeat center / cover`;

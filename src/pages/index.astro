@@ -6,6 +6,8 @@ import ImagesComposition from '@/components/ImagesComposition.astro';
 import TourCard from '@/components/TourCard.astro';
 import type { ImageMetadata } from 'astro';
 import StoryCard from '@/components/StoryCard.astro';
+import storiesVideoMp4 from '@/assets/images/video-small.mp4';
+import storiesVideoWebm from '@/assets/images/video-small.webm';
 ---
 
 <Layout title="Natours | Exciting tours for adventurous people">
@@ -72,17 +74,17 @@ import StoryCard from '@/components/StoryCard.astro';
         <TourCard
           gradient1="color-secondary-light"
           gradient2="color-secondary-dark"
-          tour="1"
+          tour={1}
         />
         <TourCard
           gradient1="color-primary-light"
           gradient2="color-primary-dark"
-          tour="2"
+          tour={2}
         />
         <TourCard
           gradient1="color-tertiary-light"
           gradient2="color-tertiary-dark"
-          tour="3"
+          tour={3}
         />
       </div>
     </section>
@@ -91,8 +93,8 @@ import StoryCard from '@/components/StoryCard.astro';
     <section id="stories">
       <div class="bg-video">
         <video muted autoplay loop>
-          <source src="src/assets/images/video-small.mp4" type="video/mp4" />
-          <source src="src/assets/images/video-small.webm" type="video/webm" />
+          <source src={storiesVideoMp4} type="video/mp4" />
+          <source src={storiesVideoWebm} type="video/webm" />
           Your browser is not supported
         </video>
       </div>
