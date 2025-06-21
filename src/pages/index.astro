@@ -7,7 +7,8 @@ import TourCard from '@/components/TourCard.astro';
 import StoryCard from '@/components/StoryCard.astro';
 import storiesVideoMp4 from '@/assets/images/stories/video-small.mp4';
 import storiesVideoWebm from '@/assets/images/stories/video-small.webm';
-import FormItem from '@/components/FormItem.astro';
+import FormInput from '@/components/FormInput.astro';
+import FormRadio from '@/components/FormRadio.astro';
 ---
 
 <Layout title="Natours | Exciting tours for adventurous people">
@@ -112,8 +113,15 @@ import FormItem from '@/components/FormItem.astro';
       <div class="book">
         <form>
           <h2 class="mb-sm">Start booking now</h2>
-          <FormItem label="Full name" input="name" />
-          <FormItem type="email" label="Email address" input="email" />
+          <FormInput label="Full name" input="name" />
+          <FormInput type="email" label="Email address" input="email" />
+          <div class="radios">
+            <FormRadio label="Small tour group" name="size" id="small" />
+            <FormRadio label="Large tour group" name="size" id="large" />
+          </div>
+          <Button href="#" class="btn btn--green" type="button"
+            >Next step &rarr;</Button
+          >
         </form>
       </div>
     </section>

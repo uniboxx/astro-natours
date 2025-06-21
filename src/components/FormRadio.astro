@@ -1,0 +1,45 @@
+---
+const { label, name, id } = Astro.props;
+---
+
+<div class="radio-item">
+  <input type="radio" name={name} id={id} />
+  <label for={id}><span class="radio-button"></span> {label}</label>
+</div>
+
+<style>
+  .radio-item {
+    display: flex;
+    align-items: center;
+
+    width: 49%;
+
+    label {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      width: 100%;
+      font-size: 0.8rem;
+
+      .radio-button {
+        display: inline-block;
+        transition: 0.2s;
+        outline: 4px solid var(--color-primary);
+        outline-offset: 3px;
+        border-radius: 50%;
+        width: 0.5rem;
+        height: 0.5rem;
+      }
+    }
+
+    input {
+      display: none;
+      cursor: pointer;
+    }
+    input:checked + label .radio-button {
+      background-color: var(--color-primary);
+    }
+  }
+</style>

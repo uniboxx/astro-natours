@@ -1,8 +1,21 @@
 ---
-const { href, class: classname } = Astro.props;
+const { href, type = 'link', class: classname } = Astro.props;
 ---
 
-<a href={href} class:list={[classname]}><slot /></a>
+{
+  type === 'button' && (
+    <button class:list={[classname]}>
+      <slot />
+    </button>
+  )
+}
+{
+  type === 'link' && (
+    <a href={href} class:list={[classname]}>
+      <slot />
+    </a>
+  )
+}
 
 <style>
   .btn {
@@ -16,6 +29,13 @@ const { href, class: classname } = Astro.props;
       color: var(--color-gray-dark);
       &::after {
         background-color: var(--color-white);
+      }
+    }
+    &.btn--green {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      &::after {
+        background-color: var(--color-primary);
       }
     }
     &.btn--animated {
