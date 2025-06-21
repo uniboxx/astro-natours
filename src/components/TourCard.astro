@@ -8,13 +8,22 @@ import rotate from '@/assets/icons/icon-rotate.webp';
 const tourImages = import.meta.glob<{ default: ImageMetadata }>(
   '@/assets/images/tours/*.webp'
 );
-console.log(tourImages);
-const tourImagesValues = Object.values(tourImages);
+
+const tourImagesKeys = Object.keys(tourImages);
+
+interface Props {
+  gradient1: string;
+  gradient2: string;
+  tour: number;
+}
 
 const { gradient1, gradient2, tour } = Astro.props;
 
 const { name, image, details, price } = tours[tour - 1];
-const imageUrl = (await tourImagesValues[tour - 1]()).default.src;
+
+const key = tourImagesKeys.find((key) => key.includes(image));
+
+const imageUrl = (await tourImages[key as string]()).default.src;
 
 const gradient = `linear-gradient(to bottom right, var(--${gradient1}), var(--${gradient2}))`;
 const gradientTransp = `linear-gradient(to bottom right, lch(from var(--${gradient1}) l c h / 0.85), lch(from var(--${gradient2}) l c h / 0.85))`;
