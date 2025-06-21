@@ -7,21 +7,17 @@ const storyImages = import.meta.glob<{ default: ImageMetadata }>(
 const storyImagesValues = Object.values(storyImages);
 
 const { story } = Astro.props;
-const { title, alt, text } = stories[story - 1];
+const { title, name, text } = stories[story - 1];
 ---
 
 <div class="story">
   <figure class="image">
-    <Image src={storyImagesValues[story - 1]()} alt={alt} />
+    <Image src={storyImagesValues[story - 1]()} alt="person on a tour" />
+    <figcaption>{name}</figcaption>
   </figure>
   <div class="text">
     <h3 class="mb-sm">{title}</h3>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolore a
-      asperiores, voluptate animi, recusandae nesciunt rerum dignissimos
-      delectus quam fugit vero adipisci nostrum distinctio optio voluptatem
-      commodi soluta necessitatibus!
-    </p>
+    <p>{text}</p>
   </div>
 </div>
 
@@ -36,18 +32,44 @@ const { title, alt, text } = stories[story - 1];
 
     box-shadow: 0 1.5rem 3rem lch(from var(--color-black) l c h / 0.1);
     border-radius: 3px;
-    background-color: var(--color-white);
+    background-color: lch(from var(--color-white) l c h / 0.6);
     padding: 1rem;
 
     figure.image {
+      position: relative;
+      z-index: 1;
       clip-path: circle(50% at 50% 50%);
-
       width: 7.5rem;
       height: 7.5rem;
 
       img {
+        transform: scale(1.4);
+        transition: 0.5s;
         height: 100%;
         object-fit: cover;
+      }
+      figcaption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        opacity: 0;
+        transition: 0.5s;
+        color: var(--color-white);
+        font-size: 0.85rem;
+        text-align: center;
+      }
+    }
+    &:hover {
+      figure.image {
+        img {
+          transform: scale(1);
+          filter: blur(3px) brightness(0.7);
+        }
+        figcaption {
+          transform: translate(-50%, -50%);
+          opacity: 1;
+        }
       }
     }
     @media screen and (min-width: 40rem) {

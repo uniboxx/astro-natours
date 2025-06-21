@@ -89,11 +89,21 @@ import StoryCard from '@/components/StoryCard.astro';
 
     <!-- STORIES SECTION -->
     <section id="stories">
+      <div class="bg-video">
+        <video muted autoplay loop>
+          <source src="src/assets/images/video.mp4" type="video/mp4" />
+          <source src="src/assets/images/video.webm" type="video/webm" />
+          Your browser is not supported
+        </video>
+      </div>
       <div class="mb-lg center">
         <h2 class="mb-sm">WE MAKE PEOPLE GENUINELY HAPPY</h2>
       </div>
       <StoryCard story="1" />
       <StoryCard story="2" />
+      <div class="center">
+        <Button href="#" class="btn-text">Read all stories &rarr;</Button>
+      </div>
     </section>
   </main>
 </Layout>

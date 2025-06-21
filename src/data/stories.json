@@ -1,12 +1,12 @@
 [
   {
     "title": "I HAD THE BEST WEEK EVER WITH FAMILY",
-    "alt": "Person on a tour",
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, accusantium."
+    "name": "MARY SMITH",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolore a asperiores, voluptate animi, recusandae nesciunt rerum dignissimos delectus quam fugit vero adipisci nostrum distinctio optio voluptatem commodi soluta necessitatibus!"
   },
   {
     "title": "WOW! MY LIFE IS COMPLETELY DIFFERENT NOW",
-    "alt": "Person on a tour",
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, accusantium."
+    "name": "JACK WILSON",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolore a asperiores, voluptate animi, recusandae nesciunt rerum dignissimos delectus quam fugit vero adipisci nostrum distinctio optio voluptatem commodi soluta necessitatibus!"
   }
 ]
