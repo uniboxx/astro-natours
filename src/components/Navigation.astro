@@ -17,13 +17,14 @@
 
 <style>
   #navigation {
+    --position: 0.5rem;
     input[type='checkbox'] {
       display: none;
     }
     label {
       position: fixed;
-      top: 2rem;
-      right: 2rem;
+      top: var(--position);
+      right: var(--position);
       z-index: 2000;
       cursor: pointer;
       box-shadow: 0 0.5rem 1.5rem lch(from var(--color-black) l c h / 0.2);
@@ -68,8 +69,8 @@
     }
     .background {
       position: fixed;
-      top: 2.25rem;
-      right: 2.25rem;
+      top: calc(var(--position) * 1.5);
+      right: calc(var(--position) * 1.5);
       z-index: 1000;
       transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
       border-radius: 50%;
