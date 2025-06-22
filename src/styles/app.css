@@ -11,3 +11,4 @@
 @import './layouts/tours.css' layer(tours);
 @import './layouts/stories.css' layer(stories);
 @import './layouts/booking.css' layer(booking);
+@import './layouts/footer.css' layer(footer);

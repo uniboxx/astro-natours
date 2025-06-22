@@ -14,7 +14,7 @@ body {
 }
 html {
   font-size: 112.5%;
-  @media screen and (min-width: 80rem) {
+  @media screen and (min-width: 40rem) {
     font-size: 125%;
   }
   /* @media screen and (min-width: 120rem) {

@@ -42,6 +42,9 @@ const { href, type = 'link', class: classname } = Astro.props;
       animation: moveInBottom 0.5s ease-out 0.75s;
       animation-fill-mode: backwards;
     }
+    &.btn--low {
+      padding: 0.5rem 2rem;
+    }
     &::after {
       display: inline-block;
       position: absolute;

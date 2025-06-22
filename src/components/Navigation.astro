@@ -1,0 +1,95 @@
+<div id="navigation">
+  <input type="checkbox" id="navigation-toggle" />
+  <label for="navigation-toggle">menu</label>
+  <div class="background"></div>
+  <nav>
+    <ul>
+      <li><a href="#">ABOUT NATOURS</a></li>
+      <li><a href="#">YOUR BENEFITS</a></li>
+      <li><a href="#">POPULAR TOURS</a></li>
+      <li><a href="#">STORIES</a></li>
+      <li><a href="#">BOOK NOW</a></li>
+    </ul>
+  </nav>
+</div>
+
+<style>
+  #navigation {
+    input[type='checkbox'] {
+      display: none;
+    }
+    label {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 2000;
+      border-radius: 50%;
+      background-color: var(--color-white);
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .background {
+      position: fixed;
+      top: 2.25rem;
+      right: 2.25rem;
+      z-index: 1000;
+      border-radius: 50%;
+      background: radial-gradient(
+        var(--color-primary-light),
+        var(--color-primary-dark)
+      );
+      width: 3rem;
+      height: 3rem;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1500;
+      transition: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      /* background-color: var(--color-white); */
+      width: 100svw;
+      height: 100svh;
+      ul {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        li {
+          margin: 0.5rem;
+          color: var(--color-white);
+          font-weight: 300;
+
+          a {
+            display: inline-block;
+            transition: 0.4s;
+            background: linear-gradient(
+              120deg,
+              transparent 50%,
+              var(--color-white) 50%
+            );
+            background-size: 230%;
+            padding: 0.5rem 1rem;
+            font-size: 1.5rem;
+            &:hover,
+            &:active {
+              transform: translateX(0.5rem);
+              background-position: 100%;
+              color: var(--color-primary);
+            }
+          }
+        }
+      }
+    }
+    input[type='checkbox']:checked ~ .background {
+      transform: scale(80);
+      transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+    input[type='checkbox']:checked ~ nav {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+</style>
