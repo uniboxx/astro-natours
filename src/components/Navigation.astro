@@ -1,6 +1,8 @@
 <div id="navigation">
   <input type="checkbox" id="navigation-toggle" />
-  <label for="navigation-toggle">menu</label>
+  <label for="navigation-toggle">
+    <span class="hamburger"></span>
+  </label>
   <div class="background"></div>
   <nav>
     <ul>
@@ -23,16 +25,53 @@
       top: 2rem;
       right: 2rem;
       z-index: 2000;
+      cursor: pointer;
+      box-shadow: 0 0.5rem 1.5rem lch(from var(--color-black) l c h / 0.2);
       border-radius: 50%;
       background-color: var(--color-white);
       width: 3.5rem;
       height: 3.5rem;
+      .hamburger {
+        --hamb-distance: 0.5rem;
+
+        &,
+        &::before,
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: all 0.3s;
+          background-color: var(--color-gray-dark-3);
+          width: 1.5rem;
+          height: 2px;
+        }
+        &::before,
+        &::after {
+          content: '';
+        }
+        &::before {
+          top: calc(var(--hamb-distance) * -1);
+        }
+        &::after {
+          top: var(--hamb-distance);
+        }
+      }
+      &:hover .hamburger {
+        &::before {
+          top: calc(var(--hamb-distance) * -1.1);
+        }
+        &::after {
+          top: calc(var(--hamb-distance) * 1.1);
+        }
+      }
     }
     .background {
       position: fixed;
       top: 2.25rem;
       right: 2.25rem;
       z-index: 1000;
+      transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
       border-radius: 50%;
       background: radial-gradient(
         var(--color-primary-light),
@@ -48,14 +87,18 @@
       opacity: 0;
       z-index: 1500;
       transition: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      /* background-color: var(--color-white); */
       width: 100svw;
       height: 100svh;
+      /* background-color: var(--color-white); */
+      pointer-events: none;
+
       ul {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-90%, -50%);
+        transition: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        width: 100%;
         text-align: center;
         li {
           margin: 0.5rem;
@@ -72,12 +115,17 @@
             );
             background-size: 230%;
             padding: 0.5rem 1rem;
+
             font-size: 1.5rem;
             &:hover,
             &:active {
               transform: translateX(0.5rem);
               background-position: 100%;
+              pointer-events: all;
               color: var(--color-primary);
+            }
+            @media screen and (min-width: 40rem) {
+              font-size: 1.5rem;
             }
           }
         }
@@ -90,6 +138,22 @@
     input[type='checkbox']:checked ~ nav {
       opacity: 1;
       pointer-events: auto;
+      ul {
+        transform: translate(-50%, -50%);
+      }
+    }
+    input[type='checkbox']:checked ~ label .hamburger {
+      background: transparent;
+    }
+    input[type='checkbox']:checked ~ label .hamburger::before {
+      top: 0;
+      left: 0;
+      transform: rotate(135deg);
+    }
+    input[type='checkbox']:checked ~ label .hamburger::after {
+      top: 0;
+      left: 0;
+      transform: rotate(-135deg) translateY(0);
     }
   }
 </style>
