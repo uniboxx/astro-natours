@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import image1 from '@/assets/images/stories/nat-8-small.webp';
+import image2 from '@/assets/images/stories/nat-9-small.webp';
+import Button from './Button.astro';
+---
+
+<div id="popup">
+  <div class="content">
+    <a href="#tours" class="close">&times;</a>
+    <div class="photos">
+      <Image src={image1} alt="person on a tour" />
+      <Image src={image2} alt="person on a tour" />
+    </div>
+    <div class="text">
+      <h2>Start booking now</h2>
+      <h3>Important &ndash; Please read these terms before booking</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
+        incidunt nam molestiae a repellendus nesciunt veritatis obcaecati
+        assumenda, cum tempore itaque illo deleniti ipsum sunt sed dolorum?
+        Magnam, enim excepturi!
+      </p>
+      <Button href="#" class="btn btn--green btn--low">Book now</Button>
+    </div>
+  </div>
+
+  <style>
+    #popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 30;
+      transition: 0.5s ease-in-out;
+      background-color: lch(from var(--color-black) l c h / 0.9);
+      width: 100%;
+      height: 100svh;
+
+      .content {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        align-items: center;
+        transform: translate(-50%, -50%) scale(0.25);
+        opacity: 0;
+        transition: 0.5s ease-in-out 0.2s;
+        box-shadow: 0 1rem 2rem lch(from var(--color-black) l c h / 0.25);
+        border-radius: 3px;
+        background-color: var(--color-white);
+
+        .close {
+          display: inline-block;
+          position: absolute;
+          top: 0.3rem;
+          right: 0.5rem;
+          transition: 0.2s;
+          cursor: pointer;
+          font-size: 1.5rem;
+          line-height: 1;
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
+
+        .photos {
+          display: none;
+          align-self: stretch;
+          max-width: 33%;
+          img {
+            max-width: 100%;
+            height: 50%;
+            object-fit: cover;
+          }
+          @media screen and (min-width: 60rem) {
+            display: block;
+          }
+        }
+        .text {
+          margin-bottom: 2rem;
+          padding: 1.5rem 2.5rem;
+
+          h2,
+          h3 {
+            margin-bottom: 1rem;
+          }
+
+          @media screen and (min-width: 60rem) {
+            width: 60%;
+            p {
+              column-gap: 2rem;
+              column-count: 2;
+              font-size: 0.7rem;
+              hypens: auto;
+            }
+          }
+        }
+      }
+
+      /* OPEN STATE */
+      &:target {
+        visibility: visible;
+        opacity: 1;
+        .content {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+    }
+  </style>
+</div>
